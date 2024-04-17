@@ -19,7 +19,8 @@ import java.lang.annotation.Target;
 @Entity
 @Table(name = "authors",
         uniqueConstraints = {
-                @UniqueConstraint(name = "uk_authors_email", columnNames = "email")
+                @UniqueConstraint(name = "uk_authors-email", columnNames = "email"),
+                @UniqueConstraint(name = "uk_authors-users_id", columnNames = "user_id")
         }
 )
 @AllArgsConstructor
@@ -38,4 +39,8 @@ public class Author {
 
     @Column(name = "phone_no", length = 10)
     private String phoneNo;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
 }

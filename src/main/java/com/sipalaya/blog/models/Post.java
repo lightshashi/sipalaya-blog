@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Set;
+
 /**
  * @author shashi
  * @version 1.0.0
@@ -33,4 +35,12 @@ public class Post {
 
     @Column(name = "cover_image", columnDefinition = "BLOB")
     private String coverImage;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "posts_authors",
+            joinColumns = @JoinColumn(name = "post_id", foreignKey = @ForeignKey(name = "fk_posts-authors_id")),
+            inverseJoinColumns = @JoinColumn(name = "author_id", foreignKey = @ForeignKey(name = "fk_authors-posts_id"))
+    )
+    private Set<Author> authors;
 }

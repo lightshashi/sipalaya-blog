@@ -30,10 +30,10 @@ public class Comment {
     private String comment;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "fk_comments_users_id"))
+    @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "fk_comments-users_id"))
     private User user;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id")
+    @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "comment_id", foreignKey = @ForeignKey(name = "fk_comments_id"))
     private Set<Comment> comments;
 }
