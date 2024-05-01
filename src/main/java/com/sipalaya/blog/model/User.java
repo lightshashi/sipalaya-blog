@@ -1,4 +1,4 @@
-package com.sipalaya.blog.models;
+package com.sipalaya.blog.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

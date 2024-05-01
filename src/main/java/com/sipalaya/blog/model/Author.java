@@ -1,12 +1,10 @@
-package com.sipalaya.blog.models;
+package com.sipalaya.blog.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.lang.annotation.Target;
 
 /**
  * @author shashi
